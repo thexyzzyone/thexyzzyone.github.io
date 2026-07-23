@@ -1,0 +1,24 @@
+# Linktree-style homepage content.
+# Edit this file to change what appears on the page — no HTML/Liquid required.
+
+name: "XyzzyOne"
+tagline: "A silly person."
+
+# Path under /assets/images/, e.g. "avatar.jpg". Leave blank to show initials instead.
+avatar: "profile.png"
+
+# "dark" or "light"
+theme: "dark"
+
+chub_icon: "chub.png"
+botbooru_icon: "botbooru.png"
+github_icon: "github.png"
+
+st_plugins:
+  - label: "Group Responder Selector"
+    url: "https://github.com/thexyzzyone/STGroupResponderSelector"
+    icon: "github.png"
+  - label: "Fast User Switching"
+    url: "https://github.com/thexyzzyone/STFastUserSwitching"
+
+

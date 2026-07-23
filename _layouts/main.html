@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.data.profile.name | default: site.title }}</title>
+  {% if site.data.profile.tagline %}<meta name="description" content="{{ site.data.profile.tagline }}">{% endif %}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body class="theme-{{ site.data.profile.theme | default: 'light' }}">
+  <main class="bio-links">
+    <div class="avatar">
+      {% if site.data.profile.avatar and site.data.profile.avatar != "" %}
+        <img src="{{ '/assets/images/' | append: site.data.profile.avatar | relative_url }}" alt="{{ site.data.profile.name }}">
+      {% else %}
+        <span class="avatar-initial">{{ site.data.profile.name | slice: 0 }}</span>
+      {% endif %}
+    </div>
+
+    <h1 class="name">{{ site.data.profile.name }}</h1>
+    {% if site.data.profile.tagline %}<p class="tagline">{{ site.data.profile.tagline }}</p>{% endif %}
+
+    <h2>Social &amp; Profiles</h2>
+    <ul class="links horiz-list">
+      <li>
+        <a class="link-button"
+           href="https://chub.ai/users/{{ site.chub_username }}"
+           target="_blank"
+           rel="noopener noreferrer">
+          {% if site.data.profile.chub_icon %}
+            <span class="icon">
+              <img src="{{ '/assets/images/' | append: site.data.profile.chub_icon | relative_url }}"
+                   alt="{{ 'Chub for ' | append: site.chub_username }}"
+                   class="icon"
+              />
+            </span>
+          {%  else %}
+            <span class="label">Chub</span>
+          {% endif %}
+        </a>
+      </li>
+      <li>
+        <a class="link-button"
+           href="https://botbooru.com/profile/{{ site.botbooru.id }}"
+           target="_blank"
+           rel="noopener noreferrer">
+          {% if site.data.profile.chub_icon %}
+            <span class="icon">
+              <img src="{{ '/assets/images/' | append: site.data.profile.botbooru_icon | relative_url }}"
+                   alt="{{ 'Botbooru for ' | append: site.botbooru.username }}"
+                   class="icon"
+              />
+            </span>
+          {%  else %}
+            <span class="label">Chub</span>
+          {% endif %}
+        </a>
+      </li>
+    </ul>
+    <h2>Silly Tavern Plugins</h2>
+    <ul class="links">
+      {% for link in site.data.profile.st_plugins %}
+        <li>
+          <a class="link-button" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
+            {% if link.icon %}
+              <img src="{{ '/assets/images/' | append: link.icon | relative_url }}"
+                   alt="{{ link.icon_alt }}"
+                   class="icon"
+              />
+            {% else %}
+              <img src="{{ '/assets/images/' | append: site.data.profile.github_icon | relative_url }}"
+                   alt="{{ 'Github Logo' }}"
+                   class="icon"
+              />
+            {% endif %}
+            <span class="label">{{ link.label }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+  </main>
+</body>
+</html>
